@@ -1,10 +1,12 @@
+import { Provider } from "react-redux";
 import Counter from "./page/counter";
+import { store } from "./store";
 
 const App = () => {
   return (
-    <div>
+    <Provider store={store}>
       <Counter />
-    </div>
+    </Provider>
   );
 };
 

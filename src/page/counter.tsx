@@ -1,15 +1,29 @@
 import "./Counter.css";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement } from "../store/counter/slice";
+import { decrement, increment } from "../store/counter/slice";
+import { counter } from "../store/counter/selector";
 
 const Counter = () => {
-  // const count = useSelector(());
+  const dispatch = useDispatch();
+  const count = useSelector(counter);
+
+
 
   return (
     <div className="wrapper">
-      <button className="button">-</button>
-      <span className="button"> count </span>
-      <button className="button"> + </button>
+      <button className="button" onClick={() => dispatch(decrement())}>
+        -
+      </button>
+      <span className="button"> {count}</span>
+      <button
+        className="button"
+        onClick={() => {
+          dispatch(increment());
+        }}
+      >
+        {" "}
+        +{" "}
+      </button>
     </div>
   );
 };
