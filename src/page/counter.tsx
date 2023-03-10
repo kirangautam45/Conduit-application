@@ -7,8 +7,6 @@ const Counter = () => {
   const dispatch = useDispatch();
   const count = useSelector(counter);
 
-
-
   return (
     <div className="wrapper">
       <button className="button" onClick={() => dispatch(decrement())}>
