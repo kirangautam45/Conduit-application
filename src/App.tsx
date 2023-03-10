@@ -1,16 +1,23 @@
 import { Provider } from "react-redux";
-import { Button } from "./components/common/Button/Button";
-import Input from "./components/common/Input/Input";
-import Counter from "./page/counter";
 import { store } from "./store";
+import Home from "./page/Home/Home";
+import { Login } from "./page/Login/Login";
+import Register from "./page/Register/Register";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <Counter />
-      <Input />
-      <Button />
-    </Provider>
+    <>
+      <Provider store={store}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </Router>
+      </Provider>
+    </>
   );
 };
 
