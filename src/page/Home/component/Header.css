@@ -1,0 +1,51 @@
+.wrapper {
+  padding: 8px 64px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.titleLeft {
+  color: #5cb85c;
+  padding-bottom: 4px;
+
+  padding-left: 32px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: "Titillium Web", sans-serif;
+  line-height: 36px;
+  font-weight: bold;
+}
+.titleRight {
+  display: flex;
+  align-items: flex-start;
+}
+
+.headerPill {
+  color: #62687b;
+  padding-right: 32px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.pillText {
+  color: #0000004d;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  padding: 8px 16px;
+  display: block;
+}
+.pillText:active {
+}
+
+.link {
+  text-decoration: none;
+  color: #62687b;
+}
+.isActive {
+  color: #000000cc;
+}
+.link:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
