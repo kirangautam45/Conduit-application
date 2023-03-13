@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.button {
+  background-color: blueviolet; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
