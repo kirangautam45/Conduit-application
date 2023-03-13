@@ -1,7 +1,12 @@
 import React from "react";
-// import "./Input.css";
+import "./Input.css";
 
-const Input = () => {
-  return <input className="input" type="text" placeholder="Username" />;
+declare type InputProps = {
+  placeholder: string;
+  type: string;
+};
+
+const Input = ({ placeholder, type }: InputProps) => {
+  return <input className="input" type={type} placeholder={placeholder} />;
 };
 export default Input;

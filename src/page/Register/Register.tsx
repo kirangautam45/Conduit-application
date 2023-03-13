@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Home from "../Home/Home";
+import { Header } from "../Header/Header";
 
 const Register = () => {
   return (
     <div>
-      <Home />
+      <Header />
       <h1>This is Register Page</h1>
       <Link to={"/"}>Home </Link>
       <br />
