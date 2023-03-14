@@ -1,13 +1,14 @@
 import { Button } from "../../components/common/Button/Button";
 import Input from "../../components/common/Input/Input";
-import { Header } from "../Header/Header";
+import { NavBar } from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import React from "react";
 
 export const Login = () => {
   return (
     <>
-      <Header />
+      <NavBar />
       <div className="loginWrapper">
         <h1 className="login"> Sign In</h1>
         <Link to={"/register"} className="link">

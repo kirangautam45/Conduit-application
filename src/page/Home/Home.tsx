@@ -1,11 +1,14 @@
 import React from "react";
-import { Header } from "../Header/Header";
+import { NavBar } from "../Navbar/Navbar";
+import ArticleInfo from "./component/ArticleInfo";
+import Banner from "./component/Banner";
 
 const Home = () => {
   return (
     <div>
-      <Header />
-      Home
+      <NavBar />
+      <Banner />
+      <ArticleInfo />
     </div>
   );
 };
