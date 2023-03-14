@@ -27,8 +27,8 @@
 }
 /* image and text on left side */
 .preview {
-  margin-left: 122px;
-  margin-right: 122px;
+  margin-left: 200px;
+  margin-right: 250px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-top-width: 1px;
   border-top-style: solid;
@@ -68,11 +68,71 @@
 }
 
 /* favorite Button css*/
-.btnImg {
-  width: 14px;
-  height: 14px;
-  background-color: #5cb85c;
+.btn {
+  background-color: transparent;
+  border: 1px solid #5cb85c;
+  color: #5cb85c;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.btnImg:hover {
-  background-color: #ffffff;
+.btn:hover {
+  background-color: #5cb85c;
+  color: #ffffff;
+}
+/* Article  */
+.headingText {
+  margin-left: 200px;
+  margin-right: 250px;
+}
+
+.title {
+  color: #373a3c;
+  font-size: 24px;
+  font-family: "Titillium web", sans-serif;
+  margin-block-end: 3px;
+  font-weight: 400;
+  display: block;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.description {
+  color: #999;
+  font-weight: 300;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.3rem;
+}
+.readMoreTag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.read {
+  color: #bbbbbb;
+  font-size: 12.8px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.tagsWrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.tag {
+  color: #aaa;
+  border: 0.8px solid #ddd;
+  font-size: 12px;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 0px 7.6px;
+  margin-right: 3px;
+  margin-bottom: 3.2px;
+  border-radius: 10px;
+  white-space: nowrap;
 }
