@@ -1,10 +1,20 @@
 import React from "react";
-import demo from "../../../assets/demoavatar.png";
 import Favorite from "./Favorite";
+//@ts-ignore
 import style from "./Home.module.css";
+// @ts-ignore
+import demo from "../../../assets/demoavatar.png";
 import Tag from "./Tag";
 
 const ArticleInfo = () => {
+  const dateString = "2023-12-09T13:46:24.264Z";
+  const date = new Date(dateString);
+  const formattedDate = date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
     <>
       <div className={style.preview}>
@@ -12,7 +22,7 @@ const ArticleInfo = () => {
           <img className={style.articleMeta} src={demo} alt="Article Info" />
           <div className={style.info}>
             <p className={style.infoArticle}> Kiran Gautam </p>
-            <p className={style.infoDate}> December 9 2022 </p>
+            <p className={style.infoDate}> {formattedDate} </p>
           </div>
         </div>
 
