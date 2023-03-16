@@ -1,20 +1,20 @@
-export type ArticleType = {
+export type Article = {
   title: string;
   description: string;
   body: string;
   createdAt: string;
-  favoriteCount: number;
+  favoritesCount: number;
   slug: string;
   author: {
     username: string;
-    bio?: string;
+    bio?: string | null;
     image: string;
   };
   tagList: string[];
 };
 
 export type ArticleState = {
-  articleList: ArticleType;
+  articles: Article[]
   isError: boolean;
   isSuccess: boolean;
   isLoading: boolean;

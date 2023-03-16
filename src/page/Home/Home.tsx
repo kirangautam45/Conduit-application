@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavBar } from "../Navbar/Navbar";
 import ArticleInfo from "./component/ArticleInfo";
 import Banner from "./component/Banner";
-import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import Spinner from "../../components/Spinner";
 import { articleSelector } from "../../store/article/selector";
+import { getArticle } from "../../store/article/slice";
 
 const Home = () => {
-  // const dispatch = useDispatch();
-  const { articleList, isLoading } = useSelector(articleSelector);
-  console.log(articleList);
+  const dispatch = useAppDispatch();
+  const { articles } = useAppSelector(articleSelector);
+  console.log("article", articles);
 
-  if (isLoading) return <Spinner />;
+
+
+  useEffect(() => {
+    dispatch(getArticle());
+  }, [dispatch]);
 
   return (
     <div>
       <NavBar />
       <Banner />
-      <ArticleInfo />
-      <ArticleInfo />
-      <ArticleInfo />
+      {articles.length ? (
+        articles.map((data) => (
+          <ArticleInfo
+            username={data.author.username}
+            tag={data.tagList}
+            count={data.favoritesCount}
+            slug={data.slug}
+            description={data.description}
+            createdAt={data.createdAt}
+          />
+        ))
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };
