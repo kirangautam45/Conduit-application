@@ -7,7 +7,7 @@ import Spinner from "../../components/Spinner";
 import { articleSelector } from "../../store/article/selector";
 import { getArticle } from "../../store/article/slice";
 
-const Home = () => {
+const Dashboard = () => {
   const dispatch = useAppDispatch();
   const { articles } = useAppSelector(articleSelector);
 
@@ -39,4 +39,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Dashboard;
