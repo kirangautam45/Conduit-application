@@ -1,0 +1,14 @@
+.input {
+  display: block;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 10px;
+  width: 50%;
+  color: #55595c;
+  background-color: #fff;
+  border: 1px solid(0, 0, 0, 0.15);
+}
+.input:active {
+  color: red;
+}
