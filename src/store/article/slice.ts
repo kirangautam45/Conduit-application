@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ArticleState } from "./type";
 import { fetchArticleApi } from "../../services/articles";
 
@@ -19,11 +19,8 @@ export const articleSlice = createSlice({
   name: "article",
   initialState,
   reducers: {
-    reset: (state) => {
-      state.isLoading = false;
-      state.isSuccess = false;
-      state.isError = false;
-      state.message = "";
+    getArticles: (state, action) => {
+      state.articles = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -42,5 +39,5 @@ export const articleSlice = createSlice({
       });
   },
 });
-export const { reset } = articleSlice.actions;
+export const { getArticles } = articleSlice.actions;
 export default articleSlice.reducer;

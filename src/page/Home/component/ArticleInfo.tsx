@@ -1,7 +1,6 @@
 import React from "react";
 import Favorite from "./Favorite";
 import style from "./Home.module.css";
-import demo from "../../../assets/demoavatar.png";
 import Tag from "./Tag";
 
 declare type ArticleInfoProps = {
@@ -11,6 +10,7 @@ declare type ArticleInfoProps = {
   slug: string;
   description: string;
   createdAt: string;
+  demo: string;
 };
 
 const ArticleInfo = ({
@@ -20,6 +20,7 @@ const ArticleInfo = ({
   slug,
   description,
   createdAt,
+  demo,
 }: ArticleInfoProps) => {
   const date = new Date(createdAt);
   const formattedDate = date.toLocaleDateString("en-US", {
@@ -27,8 +28,7 @@ const ArticleInfo = ({
     day: "numeric",
     year: "numeric",
   });
-  console.log("count", count);
-
+  const Slugs = slug.replace(/-/g, " ").slice(0, slug.indexOf("!") + 1);
   return (
     <>
       <div className={style.preview}>
@@ -45,13 +45,13 @@ const ArticleInfo = ({
         </div>
       </div>
       <div className={style.headingText}>
-        <h1 className={style.title}>{slug}</h1>
+        <h1 className={style.title}>{Slugs}</h1>
         <p className={style.description}>{description}</p>
         <div className={style.readMoreTag}>
           <span className={style.read}>Read more...</span>
           <div className={style.tagsWrapper}>
-            {tag.map((data) => (
-              <Tag tag={data} />
+            {tag.map((data, index) => (
+              <Tag key={index} tag={data} />
             ))}
           </div>
         </div>

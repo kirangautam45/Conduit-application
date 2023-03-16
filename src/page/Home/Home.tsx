@@ -10,9 +10,6 @@ import { getArticle } from "../../store/article/slice";
 const Home = () => {
   const dispatch = useAppDispatch();
   const { articles } = useAppSelector(articleSelector);
-  console.log("article", articles);
-
-
 
   useEffect(() => {
     dispatch(getArticle());
@@ -23,14 +20,16 @@ const Home = () => {
       <NavBar />
       <Banner />
       {articles.length ? (
-        articles.map((data) => (
+        articles.map((data, index) => (
           <ArticleInfo
+            key={index}
             username={data.author.username}
             tag={data.tagList}
             count={data.favoritesCount}
             slug={data.slug}
             description={data.description}
             createdAt={data.createdAt}
+            demo={data.author.image}
           />
         ))
       ) : (
