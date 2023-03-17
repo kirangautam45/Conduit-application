@@ -1,5 +1,8 @@
 .wrapper {
   display: flex;
+  margin-top: 24px;
+  margin-right: 72px;
+  margin-left: 72px;
 }
 .leftSide {
   width: 80%;

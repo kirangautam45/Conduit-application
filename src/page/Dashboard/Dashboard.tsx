@@ -21,7 +21,7 @@ const Dashboard = () => {
       <NavBar />
       <Banner />
       <div className={style.wrapper}>
-        <div div className={style.leftSide}>
+        <div className={style.leftSide}>
           {articles.length ? (
             articles.map((data, index) => (
               <ArticleInfo
