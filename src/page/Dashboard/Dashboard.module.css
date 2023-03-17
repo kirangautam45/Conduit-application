@@ -1,8 +1,11 @@
-.rightSide {
-  align-items: flex-start;
-}
-
 .wrapper {
   display: flex;
-  justify-content: space-between;
+}
+.leftSide {
+  width: 80%;
+  padding: 10px;
+}
+.rightSide {
+  width: 20%;
+  padding: 10px;
 }

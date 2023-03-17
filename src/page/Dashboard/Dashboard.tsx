@@ -17,32 +17,34 @@ const Dashboard = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       <NavBar />
       <Banner />
       <div className={style.wrapper}>
-        {articles.length ? (
-          articles.map((data, index) => (
-            <ArticleInfo
-              key={index}
-              username={data.author.username}
-              tag={data.tagList}
-              count={data.favoritesCount}
-              slug={data.slug}
-              description={data.description}
-              createdAt={data.createdAt}
-              demo={data.author.image}
-            />
-          ))
-        ) : (
-          <div> Article Loading...</div>
-        )}
+        <div div className={style.leftSide}>
+          {articles.length ? (
+            articles.map((data, index) => (
+              <ArticleInfo
+                key={index}
+                username={data.author.username}
+                tag={data.tagList}
+                count={data.favoritesCount}
+                slug={data.slug}
+                description={data.description}
+                createdAt={data.createdAt}
+                demo={data.author.image}
+              />
+            ))
+          ) : (
+            <div> Article Loading...</div>
+          )}
+        </div>
 
         <div className={style.rightSide}>
           <Tags />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

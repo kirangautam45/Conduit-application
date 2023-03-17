@@ -91,9 +91,9 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  padding-bottom: 15px;
 }
 .read {
-   
   color: #bbbbbb;
   font-size: 12.8px;
   font-family: 'Source Sans Pro', sans-serif;

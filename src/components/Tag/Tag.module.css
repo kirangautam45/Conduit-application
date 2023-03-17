@@ -1,6 +1,7 @@
 .tag {
   color: #aaa;
   border: 0.8px solid #ddd;
+  display: inline-block;
   font-size: 12px;
   font-family: 'Source Sans Pro', sans-serif;
   padding: 0px 7.6px;
