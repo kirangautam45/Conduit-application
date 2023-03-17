@@ -1,8 +1,8 @@
-import "./Counter.css";
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../store/counter/slice";
-import { counter } from "../store/counter/selector";
-import React from "react";
+import './Counter.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment } from '../store/counter/slice';
+import { counter } from '../store/counter/selector';
+import React from 'react';
 
 const Counter = () => {
   const dispatch = useDispatch();
@@ -25,8 +25,8 @@ const Counter = () => {
         }}
         type="submit"
       >
-        {" "}
-        +{" "}
+        {' '}
+        +{' '}
       </button>
     </div>
   );

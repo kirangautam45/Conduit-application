@@ -1,7 +1,7 @@
-import React from "react";
-import Favorite from "./Favorite";
-import style from "./Home.module.css";
-import Tag from "./Tag";
+import React from 'react';
+import Favorite from './Favorite';
+import style from './Home.module.css';
+import Tag from '../../../components/Tag/Tag';
 
 declare type ArticleInfoProps = {
   username: string;
@@ -23,12 +23,12 @@ const ArticleInfo = ({
   demo,
 }: ArticleInfoProps) => {
   const date = new Date(createdAt);
-  const formattedDate = date.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
+  const formattedDate = date.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
   });
-  const Slugs = slug.replace(/-/g, " ").slice(0, slug.indexOf("!") + 1);
+  const Slugs = slug.replace(/-/g, ' ').slice(0, slug.indexOf('!') + 1);
   return (
     <>
       <div className={style.preview}>

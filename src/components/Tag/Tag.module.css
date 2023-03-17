@@ -1,0 +1,11 @@
+.tag {
+  color: #aaa;
+  border: 0.8px solid #ddd;
+  font-size: 12px;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 0px 7.6px;
+  margin-right: 3px;
+  margin-bottom: 3.2px;
+  border-radius: 10px;
+  white-space: nowrap;
+}

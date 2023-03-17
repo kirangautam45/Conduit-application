@@ -1,6 +1,4 @@
-import React from "react";
-//@ts-ignore
-import style from "./Home.module.css";
+import React from 'react';
 
 declare type TagProp = {
   tag: string;

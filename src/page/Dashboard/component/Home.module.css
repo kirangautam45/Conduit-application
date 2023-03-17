@@ -11,13 +11,13 @@
 .header {
   color: #ffffff;
   font-size: 56px;
-  font-family: "Titillium web", sans-serif;
+  font-family: 'Titillium web', sans-serif;
   padding-bottom: 8px;
   font-weight: 700;
 }
 .paragraph {
   color: #ffffff;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   display: block;
   font-size: 22px;
 }
@@ -58,7 +58,7 @@
 }
 .infoArticle {
   margin-right: 24px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
   color: #5cb85c;
 }
@@ -93,7 +93,7 @@
 .title {
   color: #373a3c;
   font-size: 24px;
-  font-family: "Titillium web", sans-serif;
+  font-family: 'Titillium web', sans-serif;
   margin-block-end: 3px;
   font-weight: 400;
   display: block;
@@ -118,21 +118,10 @@
 .read {
   color: #bbbbbb;
   font-size: 12.8px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 .tagsWrapper {
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-}
-.tag {
-  color: #aaa;
-  border: 0.8px solid #ddd;
-  font-size: 12px;
-  font-family: "Source Sans Pro", sans-serif;
-  padding: 0px 7.6px;
-  margin-right: 3px;
-  margin-bottom: 3.2px;
-  border-radius: 10px;
-  white-space: nowrap;
 }
