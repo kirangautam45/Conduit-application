@@ -1,0 +1,26 @@
+.tagsWrapper {
+  display: inline-block;
+  color: #373a3c;
+  padding: 5px 10px 10px 10px;
+  background-color: #f3f3f3;
+  border-radius: 4px;
+}
+.p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+.tags {
+  display: inline-block;
+  color: #ffffff;
+  background-color: #818a91;
+  font-size: 12.8px;
+  border: 0.8px solid #ddd;
+  font-size: 12px;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 1.6px 7.6px;
+  margin-right: 3px;
+  margin-bottom: 3.2px;
+  border-radius: 10px;
+  white-space: nowrap;
+}

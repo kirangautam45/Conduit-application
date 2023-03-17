@@ -1,7 +1,7 @@
 import React from 'react';
-import Favorite from './Favorite';
-import style from './Home.module.css';
-import Tag from '../../../components/Tag/Tag';
+import Favorite from '../Favorite';
+import style from '../Home.module.css';
+import Tag from '../../../../components/Tag/Tag';
 
 declare type ArticleInfoProps = {
   username: string;
@@ -30,16 +30,16 @@ const ArticleInfo = ({
   });
   const Slugs = slug.replace(/-/g, ' ').slice(0, slug.indexOf('!') + 1);
   return (
+
     <>
-      <div className={style.preview}>
-        <div className={style.wrapper}>
+      <div className={style.wrapper}>
+        <div className={style.preview}>
           <img className={style.articleMeta} src={demo} alt="Article Info" />
           <div className={style.info}>
             <p className={style.infoArticle}> {username} </p>
             <p className={style.infoDate}> {formattedDate} </p>
           </div>
         </div>
-
         <div className={style.rightButton}>
           <Favorite Count={count} />
         </div>
@@ -51,7 +51,7 @@ const ArticleInfo = ({
           <span className={style.read}>Read more...</span>
           <div className={style.tagsWrapper}>
             {tag.map((data, index) => (
-              <Tag key={index} tag={data} />
+              <Tag key={index} tag={data} color={'#aaa'} />
             ))}
           </div>
         </div>
