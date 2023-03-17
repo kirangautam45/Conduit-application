@@ -4,20 +4,24 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 // @ts-ignore
 import style from "./Home.module.css";
 
-const Favorite = () => {
+declare type FavoriteProps = {
+  Count: number;
+};
+
+const Favorite = ({ Count }: FavoriteProps) => {
   return (
-    <button className={style.btn} type="submit">
+    <div className={style.btn}>
       <FavoriteIcon
         sx={{
           color: "#5cb85c",
-        
+
           "&:hover": {
             color: "#FFF",
           },
         }}
       />
-      617
-    </button>
+      {Count}
+    </div>
   );
 };
 
