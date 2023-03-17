@@ -20,7 +20,7 @@ const Dashboard = () => {
     <div>
       <NavBar />
       <Banner />
-      <div className={style.leftSide}>
+      <div className={style.wrapper}>
         {articles.length ? (
           articles.map((data, index) => (
             <ArticleInfo
@@ -37,10 +37,10 @@ const Dashboard = () => {
         ) : (
           <div> Article Loading...</div>
         )}
-      </div>
 
-      <div className={style.titleSide}>
-        <Tags />
+        <div className={style.rightSide}>
+          <Tags />
+        </div>
       </div>
     </div>
   );

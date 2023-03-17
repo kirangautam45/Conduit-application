@@ -1,9 +1,8 @@
 .rightSide {
-  display: flex;
   align-items: flex-start;
 }
-.leftSide {
-  display: flex;
-  flex-direction: column;
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
 }
