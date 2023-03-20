@@ -3,7 +3,7 @@ import { fetchTagsApi } from '../../services/deafultTags';
 import { DefaultTagsState } from './type';
 import { createSlice } from '@reduxjs/toolkit';
 
-export const getDefaultTags = createAsyncThunk('defaultTags', async () => {
+export const getDefaultTags = createAsyncThunk('defaultTags/tags', async () => {
   const response = await fetchTagsApi();
   return response.data.tags;
 });
@@ -16,7 +16,7 @@ const initialState: DefaultTagsState = {
 };
 
 export const defaultTagsSlice = createSlice({
-  name: 'default Tags',
+  name: 'defaultTags',
   initialState,
   reducers: {
     getDefaultTag: (state, action) => {

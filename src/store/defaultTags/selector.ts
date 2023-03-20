@@ -1,3 +1,4 @@
-import { RootState } from '..';
+import { RootState } from '../index';
 
-export const defaultTagsSelector = (state: RootState) => state.defaultTags;
+export const defaultTagsSelector = (state: RootState) => state.defaultTags.tags;
+
