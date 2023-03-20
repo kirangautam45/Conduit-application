@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  margin-top: 24px;
+  margin-right: 72px;
+  margin-left: 72px;
+}
+.leftSide {
+  width: 80%;
+  padding: 10px;
+}
+.rightSide {
+  width: 20%;
+  padding: 10px;
+}

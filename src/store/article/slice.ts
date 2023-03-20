@@ -1,9 +1,9 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { ArticleState } from "./type";
-import { fetchArticleApi } from "../../services/articles";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { ArticleState } from './type';
+import { fetchArticleApi } from '../../services/articles';
 
 //get articles
-export const getArticle = createAsyncThunk("articles/allArticles", async () => {
+export const getArticle = createAsyncThunk('articles/allArticles', async () => {
   const response = await fetchArticleApi();
   return response.data.articles;
 });
@@ -16,16 +16,16 @@ const initialState: ArticleState = {
 };
 
 export const articleSlice = createSlice({
-  name: "article",
+  name: 'article',
   initialState,
   reducers: {
     getArticles: (state, action) => {
       state.articles = action.payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getArticle.pending, (state) => {
+      .addCase(getArticle.pending, state => {
         state.isLoading = true;
       })
       .addCase(getArticle.fulfilled, (state, { payload }) => {
@@ -33,7 +33,7 @@ export const articleSlice = createSlice({
         state.isSuccess = true;
         state.articles = payload;
       })
-      .addCase(getArticle.rejected, (state) => {
+      .addCase(getArticle.rejected, state => {
         state.isLoading = false;
         state.isError = true;
       });

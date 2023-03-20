@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Tag.module.css';
 
 declare type TagProp = {
   tag: string;
