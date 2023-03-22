@@ -1,5 +1,5 @@
 import { apiCaller } from '../utils/api';
 export const fetchArticleApi = () => apiCaller.get('/articles');
 
-export const fetchArticlesSlungApi = (slug: string) =>
+export const fetchArticlesSlugApi = (slug: string) =>
   apiCaller.get(`/articles/${slug}`);

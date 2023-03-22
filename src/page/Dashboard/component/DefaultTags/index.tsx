@@ -15,11 +15,15 @@ const Tags = () => {
     <div className={style.tagsWrapper}>
       <p className={style.p}>Popular Tags</p>
       <div>
-        {defaultTags.map((tag, index) => (
-          <div className={style.tags} key={index}>
-            <> {tag} </>
-          </div>
-        ))}
+        {defaultTags.length ? (
+          defaultTags.map((tag, index) => (
+            <div className={style.tags} key={index}>
+              <> {tag} </>
+            </div>
+          ))
+        ) : (
+          <div> Loading tags... </div>
+        )}
       </div>
     </div>
   );

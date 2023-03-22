@@ -1,12 +1,22 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { ArticleState } from './type';
-import { fetchArticleApi } from '../../services/articles';
+import { fetchArticleApi, fetchArticlesSlugApi } from '../../services/articles';
 
-//get articles
-export const getArticle = createAsyncThunk('articles/allArticles', async () => {
+// get all articles
+export const getArticle = createAsyncThunk('articles/fetchAllArticles', async () => {
   const response = await fetchArticleApi();
   return response.data.articles;
 });
+
+//get slug articles
+
+export const fetchArticlesBySlug = createAsyncThunk(
+  'articles/fetchArticlesBySlug',
+  async (slug: string) => {
+    const response = await fetchArticlesSlugApi(slug);
+    return response.data;
+  },
+);
 
 const initialState: ArticleState = {
   articles: [],
@@ -34,6 +44,18 @@ export const articleSlice = createSlice({
         state.articles = payload;
       })
       .addCase(getArticle.rejected, state => {
+        state.isLoading = false;
+        state.isError = true;
+      })
+      .addCase(fetchArticlesBySlug.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchArticlesBySlug.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.articles = payload;
+      })
+      .addCase(fetchArticlesBySlug.rejected, state => {
         state.isLoading = false;
         state.isError = true;
       });
