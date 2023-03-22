@@ -66,23 +66,7 @@
   font-size: 13px;
 }
 
-/* favorite Button css*/
-.btn {
-  background-color: transparent;
-  border: 1px solid #5cb85c;
-  color: #5cb85c;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  border-radius: 0.2rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btn:hover {
-  background-color: #5cb85c;
-  color: #ffffff;
-}
+
 /* Article  */
 .headingText {
   display: flex;

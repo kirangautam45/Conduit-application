@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import style from "./component/NavBar.module.css";
-import { HeaderPill } from "./component/HeaderPill";
 import React from "react";
+import { Link } from "react-router-dom";
+import { HeaderPill } from "./component/HeaderPill";
+import style from "./component/NavBar.module.css";
 
 export const NavBar = () => {
   const PillData = [

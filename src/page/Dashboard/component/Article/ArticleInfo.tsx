@@ -1,7 +1,9 @@
 import React from 'react';
-import Favorite from '../Favorite';
-import style from './Article.module.css';
+import { Link } from 'react-router-dom';
+import Favorite from '../../../../components/Favorite/Favorite';
 import Tag from '../../../../components/Tag/Tag';
+import Author from '../../../../components/Author/Author';
+import style from './Article.module.css';
 
 declare type ArticleInfoProps = {
   username: string;
@@ -14,31 +16,21 @@ declare type ArticleInfoProps = {
 };
 
 const ArticleInfo = ({
-  username,
+  demo,
   tag,
   count,
   slug,
   description,
+  username,
   createdAt,
-  demo,
 }: ArticleInfoProps) => {
-  const date = new Date(createdAt);
-  const formattedDate = date.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
   const Slugs = slug.replace(/-/g, ' ').slice(0, slug.indexOf('!') + 1);
   return (
     <>
       <div className={style.wrapper}>
         <div className={style.preview}>
           <div className={style.leftContainer}>
-            <img className={style.articleMeta} src={demo} alt="Article Info" />
-            <div className={style.info}>
-              <p className={style.infoArticle}> {username} </p>
-              <p className={style.infoDate}> {formattedDate} </p>
-            </div>
+            <Author src={demo} username={username} createdAt={createdAt} />
           </div>
           <div className={style.rightButton}>
             <Favorite Count={count} />
@@ -46,7 +38,11 @@ const ArticleInfo = ({
         </div>
 
         <div className={style.headingText}>
-          <h1 className={style.title}>{Slugs}</h1>
+          {/* link for slug Details */}
+
+          <Link to={`/article/${slug}`} className={style.link}>
+            <h1 className={style.title}>{Slugs}</h1>
+          </Link>
           <p className={style.description}>{description}</p>
           <div className={style.readMoreTag}>
             <span className={style.read}>Read more...</span>

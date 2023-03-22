@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/store';
-import style from './Tags.module.css';
 import { defaultTagsSelector } from '../../../../store/defaultTags/selector';
 import { getDefaultTags } from '../../../../store/defaultTags/slice';
+import style from './Tags.module.css';
 
 const Tags = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ const Tags = () => {
       <div>
         {defaultTags.map((tag, index) => (
           <div className={style.tags} key={index}>
-            {tag}
+            <> {tag} </>
           </div>
         ))}
       </div>

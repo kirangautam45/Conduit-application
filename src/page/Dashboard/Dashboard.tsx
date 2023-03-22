@@ -5,7 +5,7 @@ import Banner from './component/Banner';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { articleSelector } from '../../store/article/selector';
 import { getArticle } from '../../store/article/slice';
-import Tags from './component/DeafultTags';
+import Tags from './component/DefaultTags';
 import style from './Dashboard.module.css';
 
 const Dashboard = () => {
