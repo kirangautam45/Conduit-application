@@ -7,7 +7,6 @@ export const getArticle = createAsyncThunk(
   'articles/fetchAllArticles',
   async ({ limit, offset }: { limit: number; offset: number }) => {
     const response = await fetchArticleApi(limit, offset);
-    console.log(response.data);
     return response.data;
   },
 );
@@ -36,8 +35,11 @@ export const articleSlice = createSlice({
   name: 'article',
   initialState,
   reducers: {
-    getArticles: (state, action) => {
-      state.articles = action.payload;
+    setLimit: (state, action) => {
+      state.limit = action.payload;
+    },
+    setOffset: (state, action) => {
+      state.offset = action.payload;
     },
   },
   extraReducers: builder => {
@@ -49,8 +51,7 @@ export const articleSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.articles = payload.articles;
-        state.limit = payload.limit;
-        state.offset = payload.offset;
+     
         state.articlesCount = payload.articlesCount;
       })
       .addCase(getArticle.rejected, state => {
@@ -71,5 +72,5 @@ export const articleSlice = createSlice({
       });
   },
 });
-export const { getArticles } = articleSlice.actions;
+export const { setLimit, setOffset } = articleSlice.actions;
 export default articleSlice.reducer;
