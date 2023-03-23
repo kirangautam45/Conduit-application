@@ -10,17 +10,19 @@ import style from './Dashboard.module.css';
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
-  const { articles } = useAppSelector(articleSelector);
+  const { articles, limit, offset, articlesCount } =
+    useAppSelector(articleSelector);
 
   useEffect(() => {
-    dispatch(getArticle());
-  }, [dispatch]);
+    dispatch(getArticle(limit, offset));
+  }, [dispatch, limit, offset]);
 
   return (
     <>
       <NavBar />
       <Banner />
       <div className={style.wrapper}>
+        <h5>{ articlesCount} Articles</h5>
         <div className={style.leftSide}>
           {articles.length ? (
             articles.map((data, index) => (

@@ -17,6 +17,9 @@ export type Article = {
 
 export type ArticleState = {
   articles: Article[];
+  articlesCount: number;
+  limit: number;
+  offset: number;
   isError: boolean;
   isSuccess: boolean;
   isLoading: boolean;
