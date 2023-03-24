@@ -1,6 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { ArticleState } from './type';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { Article, ArticleState } from './type';
 import { fetchArticleApi, fetchArticlesSlugApi } from '../../services/articles';
+import { Title } from '@mui/icons-material';
 
 // get all articles
 export const getArticle = createAsyncThunk(
@@ -15,8 +16,9 @@ export const getArticle = createAsyncThunk(
 
 export const fetchArticlesBySlug = createAsyncThunk(
   'articles/fetchArticlesBySlug',
-  async (slug: string) => {
+  async ({ slug }: { slug: string }) => {
     const response = await fetchArticlesSlugApi(slug);
+    console.log(response.data, 'asd');
     return response.data;
   },
 );
@@ -51,7 +53,7 @@ export const articleSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.articles = payload.articles;
-     
+
         state.articlesCount = payload.articlesCount;
       })
       .addCase(getArticle.rejected, state => {
@@ -61,11 +63,15 @@ export const articleSlice = createSlice({
       .addCase(fetchArticlesBySlug.pending, state => {
         state.isLoading = true;
       })
-      .addCase(fetchArticlesBySlug.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.articles = payload.articles;
-      })
+      .addCase(
+        fetchArticlesBySlug.fulfilled,
+        (state, action: PayloadAction<Article[]>) => {
+          state.isLoading = false;
+          state.isSuccess = true;
+          console.log(action.payload, 'action');
+          state.articles = action.payload;
+        },
+      )
       .addCase(fetchArticlesBySlug.rejected, state => {
         state.isLoading = false;
         state.isError = true;
