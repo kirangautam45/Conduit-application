@@ -6,7 +6,7 @@ import style from './Tags.module.css';
 
 const Tags = () => {
   const dispatch = useAppDispatch();
-  const defaultTags = useAppSelector(defaultTagsSelector);
+  const { tags } = useAppSelector(defaultTagsSelector);
 
   useEffect(() => {
     dispatch(getDefaultTags());
@@ -15,8 +15,8 @@ const Tags = () => {
     <div className={style.tagsWrapper}>
       <p className={style.p}>Popular Tags</p>
       <div>
-        {defaultTags.length ? (
-          defaultTags.map((tag, index) => (
+        {tags.length ? (
+          tags.map((tag, index) => (
             <div className={style.tags} key={index}>
               <> {tag} </>
             </div>
