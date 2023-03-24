@@ -1,0 +1,31 @@
+/* favorite Button css*/
+
+.container:hover .btn {
+  background-color: #5cb85c;
+  color: #ffffff;
+}
+.container {
+  display: flex;
+  margin: 2px;
+}
+
+.container:hover .btn svg {
+  color: #ffffff;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid #5cb85c;
+  color: #5cb85c;
+  padding: 0.25rem 0.5rem;
+  font-size: 14px;
+  border-radius: 3.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .btn:hover {
+  background-color: #5cb85c;
+  color: #ffffff;
+} */

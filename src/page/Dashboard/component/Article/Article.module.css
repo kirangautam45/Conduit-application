@@ -1,4 +1,7 @@
 .wrapper {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* image and text on left side */
@@ -17,29 +20,6 @@
   justify-content: space-between;
   display: flex;
   align-items: flex-start;
-}
-
-.articleMeta {
-  display: inline-block;
-  vertical-align: middle;
-  height: 32px;
-  width: 32px;
-  border-radius: 30px;
-}
-.info {
-  margin: 0 24px 0 4.8px;
-  display: inline-block;
-  vertical-align: middle;
-}
-.infoArticle {
-  margin-right: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
-  color: #5cb85c;
-}
-.infoDate {
-  color: #bbb;
-  font-size: 13px;
 }
 
 /* favorite Button css*/
@@ -97,4 +77,8 @@
   color: #bbbbbb;
   font-size: 12.8px;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.link {
+  text-decoration: none;
 }

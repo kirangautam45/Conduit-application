@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/store';
-import style from './Tags.module.css';
 import { defaultTagsSelector } from '../../../../store/defaultTags/selector';
 import { getDefaultTags } from '../../../../store/defaultTags/slice';
+import style from './Tags.module.css';
 
 const Tags = () => {
   const dispatch = useAppDispatch();
-  const defaultTags = useAppSelector(defaultTagsSelector);
+  const { tags } = useAppSelector(defaultTagsSelector);
 
   useEffect(() => {
     dispatch(getDefaultTags());
@@ -15,11 +15,15 @@ const Tags = () => {
     <div className={style.tagsWrapper}>
       <p className={style.p}>Popular Tags</p>
       <div>
-        {defaultTags.map((tag, index) => (
-          <div className={style.tags} key={index}>
-            {tag}
-          </div>
-        ))}
+        {tags.length ? (
+          tags.map((tag, index) => (
+            <div className={style.tags} key={index}>
+              <> {tag} </>
+            </div>
+          ))
+        ) : (
+          <div> Loading tags... </div>
+        )}
       </div>
     </div>
   );

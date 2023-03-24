@@ -5,16 +5,25 @@ import Banner from './component/Banner';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { articleSelector } from '../../store/article/selector';
 import { getArticle } from '../../store/article/slice';
-import Tags from './component/DeafultTags';
+import Tags from './component/DefaultTags';
+import Pagination from '../../components/pagination/pagination';
+import Footer from '../Footer/Footer';
+//@ts-ignore
 import style from './Dashboard.module.css';
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
-  const { articles } = useAppSelector(articleSelector);
+  const { articles, limit, offset, isLoading, isSuccess } =
+    useAppSelector(articleSelector);
 
   useEffect(() => {
-    dispatch(getArticle());
-  }, [dispatch]);
+    dispatch(
+      getArticle({
+        limit: limit,
+        offset: offset,
+      }),
+    );
+  }, [dispatch, limit, offset]);
 
   return (
     <>
@@ -30,6 +39,7 @@ const Dashboard = () => {
                 tag={data.tagList}
                 count={data.favoritesCount}
                 slug={data.slug}
+                title={data.title}
                 description={data.description}
                 createdAt={data.createdAt}
                 demo={data.author.image}
@@ -44,6 +54,11 @@ const Dashboard = () => {
           <Tags />
         </div>
       </div>
+      <div className={style.pagination}>
+        {isLoading && !isSuccess && <>Article Loading... </>}
+        {!isLoading && isSuccess && <Pagination />}
+      </div>
+      <Footer />
     </>
   );
 };

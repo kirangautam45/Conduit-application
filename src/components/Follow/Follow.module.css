@@ -1,0 +1,27 @@
+/* favorite Button css*/
+
+.container:hover .btn {
+  transition: 0.1s all;
+  opacity: 1;
+}
+.container {
+  display: flex;
+  margin: 2px;
+}
+
+.container:hover .btn svg {
+  transition: 0.1s all;
+  opacity: 1;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #ccc;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 3.5px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
