@@ -13,6 +13,7 @@ declare type ArticleInfoProps = {
   description: string;
   createdAt: string;
   demo: string;
+  title: string;
 };
 
 const ArticleInfo = ({
@@ -23,8 +24,8 @@ const ArticleInfo = ({
   description,
   username,
   createdAt,
+  title,
 }: ArticleInfoProps) => {
-  const Slugs = slug.replace(/-/g, ' ').slice(0, slug.indexOf('!') + 1);
   return (
     <>
       <hr className={style.wrapper} />
@@ -41,7 +42,7 @@ const ArticleInfo = ({
         {/* link for slug Details */}
 
         <Link to={`/article/${slug}`} className={style.link}>
-          <h1 className={style.title}>{Slugs}</h1>
+          <h1 className={style.title}>{title}</h1>
         </Link>
         <p className={style.description}>{description}</p>
         <div className={style.readMoreTag}>

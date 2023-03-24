@@ -23,12 +23,14 @@ const Pagination = () => {
 
   const renderPagination = () => {
     let number: Array<ReactElement> = [];
-    for (let i = 1; i < totalPages; i++) {
+    for (let i = 1; i <= totalPages; i++) {
+      const activeClass =
+        currentPage === i ? style.paginationActive : style.paginationInactive;
       number.push(
         <button
           type="button"
           disabled={currentPage === i}
-          className={style.paginationActive}
+          className={activeClass}
           key={i}
           onClick={() => goToPage(i)}
         >

@@ -1,5 +1,6 @@
 .pagination {
   display: inline;
+  flex: auto;
   border-radius: 4px;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -12,6 +13,7 @@
   cursor: default;
   background-color: #5cb85c;
   border-color: #5cb85c;
+  text-decoration: underline;
 }
 .paginationActive:hover {
   text-decoration: underline;
@@ -19,10 +21,9 @@
 
 .paginationInactive {
   position: relative;
+  z-index: 2;
   padding: 0.5rem 0.75rem;
-  margin-left: -1px;
   color: #5cb85c;
-  text-decoration: none;
   background-color: #fff;
   border: 1px solid #ddd;
 }

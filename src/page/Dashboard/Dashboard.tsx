@@ -6,12 +6,14 @@ import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { articleSelector } from '../../store/article/selector';
 import { getArticle } from '../../store/article/slice';
 import Tags from './component/DefaultTags';
-import style from './Dashboard.module.css';
 import Pagination from '../../components/pagination/pagination';
+import Footer from '../Footer/Footer';
+//@ts-ignore
+import style from './Dashboard.module.css';
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
-  const { articles, limit, offset, articlesCount, isLoading, isSuccess } =
+  const { articles, limit, offset, isLoading, isSuccess } =
     useAppSelector(articleSelector);
 
   useEffect(() => {
@@ -28,7 +30,6 @@ const Dashboard = () => {
       <NavBar />
       <Banner />
       <div className={style.wrapper}>
-        <h5>{articlesCount} Articles</h5>
         <div className={style.leftSide}>
           {articles.length ? (
             articles.map((data, index) => (
@@ -38,6 +39,7 @@ const Dashboard = () => {
                 tag={data.tagList}
                 count={data.favoritesCount}
                 slug={data.slug}
+                title={data.title}
                 description={data.description}
                 createdAt={data.createdAt}
                 demo={data.author.image}
@@ -51,17 +53,12 @@ const Dashboard = () => {
         <div className={style.rightSide}>
           <Tags />
         </div>
-        {/* {offset > 1 && (
-          <Pagination
-          // limit={limit}
-          // articlesCount={articlesCount}
-          // handlePagination={undefined}
-          />
-        )} */}
       </div>
       <div className={style.pagination}>
+        {isLoading && !isSuccess && <>Article Loading... </>}
         {!isLoading && isSuccess && <Pagination />}
       </div>
+      <Footer />
     </>
   );
 };
