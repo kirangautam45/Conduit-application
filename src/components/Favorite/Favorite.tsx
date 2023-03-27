@@ -5,13 +5,13 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import style from './Favorite.module.css';
 
 declare type FavoriteProps = {
-  Count: number;
+  Count: string;
 };
 
 const Favorite = ({ Count }: FavoriteProps) => {
   return (
     <div className={style.container}>
-      <button className={style.btn} type='submit'>
+      <button className={style.btn} type="submit">
         <FavoriteIcon
           sx={{
             color: '#5cb85c',

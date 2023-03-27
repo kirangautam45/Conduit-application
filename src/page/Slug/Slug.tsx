@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { NavBar } from '../Navbar/Navbar';
 import Tag from '../../components/Tag/Tag';
+//@ts-ignore
 import style from './slug.module.css';
-import AuthorInfo from './component/component';
+import AuthorInfo from './componenet/component';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
-import { fetchArticlesBySlug } from '../../store/article/slice';
+import { fetchArticlesBySlug } from '../../store/slug/slice';
 import { useParams } from 'react-router-dom';
-import { articleSelector } from '../../store/article/selector';
+import { articleSlugSelector } from '../../store/slug/selector';
 
 const Slug = () => {
   const dispatch = useAppDispatch();
   const { slug } = useParams();
-  const { articles, isLoading, isSuccess } = useAppSelector(articleSelector);
-  console.log(articles, 'articles');
+  const { articleSlug, isLoading, isSuccess } =
+    useAppSelector(articleSlugSelector);
 
-  const articlesList =
-    articles && articles.find(articles => articles.slug === slug);
+  const description =
+    articleSlug.body && articleSlug.body.replace(/(\r\n|\r|\n)/g, ' \n');
 
-  console.log(articlesList);
 
   useEffect(() => {
     if (slug) dispatch(fetchArticlesBySlug({ slug: slug }));
@@ -26,32 +26,34 @@ const Slug = () => {
   return (
     <>
       <NavBar />
-      {isSuccess && isLoading && (
+      {isSuccess && !isLoading && (
         <>
           <div className={style.banner}>
             <div className={style.container}>
-              <h1>{articlesList?.title}</h1>
+              <h1>{articleSlug.title}</h1>
               <AuthorInfo
-                src={articlesList?.author.image}
-                username={articlesList?.author.username}
-                createdAt={articlesList?.createdAt}
-                count={articlesList?.favoritesCount}
+                src={articleSlug.author?.image}
+                username={articleSlug.author?.username}
+                createdAt={articleSlug.createdAt}
+                count={articleSlug.favoritesCount.toString()}
               />
             </div>
           </div>
           <div className={style.containerPage}>
             <div className={style.row}>
-              <p className={style.paragraph}>{articlesList?.description}</p>
+              <p className={style.paragraph}>{description}</p>
             </div>
-            {articlesList?.tagList.map((data, index) => (
+
+            {articleSlug.tagList.map((data, index) => (
               <Tag key={index} tag={data} />
             ))}
             <hr className={style.hr} />
+
             <AuthorInfo
-              src={articlesList?.author.image}
-              username={articlesList?.author.username}
-              createdAt={articlesList?.createdAt}
-              count={articlesList?.favoritesCount}
+              src={articleSlug.author?.image}
+              username={articleSlug.author?.username}
+              createdAt={articleSlug.createdAt}
+              count={articleSlug.favoritesCount.toString()}
             />
           </div>
         </>

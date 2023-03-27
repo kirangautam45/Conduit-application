@@ -1,4 +1,4 @@
-export type Article = {
+export type ArticleSlug = {
   slug: string;
   title: string;
   description: string;
@@ -6,20 +6,17 @@ export type Article = {
   tagList: string[];
   createdAt: string;
   favorited: boolean;
-  favoritesCount: number;
   author: {
     username: string;
     bio?: string | null;
     image: string;
   };
   following: boolean;
+  favoritesCount: number;
 };
 
-export type ArticleState = {
-  articles: Article[];
-  articlesCount: number;
-  limit: number;
-  offset: number;
+export type ArticleSlugState = {
+  articleSlug: ArticleSlug;
   isError: boolean;
   isSuccess: boolean;
   isLoading: boolean;
