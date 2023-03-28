@@ -26,6 +26,10 @@
   color: #3d8b3d;
   text-decoration: underline;
 }
-.btn{
-  
+.btn {
+  margin-right: -65px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  justify-self: end;
 }

@@ -25,12 +25,8 @@
   text-decoration: underline;
 }
 
-.center {
-  place-items: center;
-  display: flex;
-  flex-direction: column;
-}
 .btn {
+  margin-right: -65px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

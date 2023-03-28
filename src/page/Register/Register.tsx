@@ -14,7 +14,7 @@ const Register = () => {
         <Link className={style.link} to={'/login'}>
           <p className={style.loginLink}>Have an account? </p>
         </Link>
-        <form className={style.center}>
+        <form>
           <Input placeholder="Username" type="text" />
           <Input placeholder="Email" type="email" />
           <Input placeholder="Password" type="password" />

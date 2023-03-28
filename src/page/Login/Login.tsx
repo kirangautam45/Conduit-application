@@ -16,13 +16,13 @@ export const Login = () => {
         <Link to={'/register'} className={style.link}>
           <p className={style.registerLink}>Need an account? </p>
         </Link>
-        <div>
+        <form className={style.center}>
           <Input placeholder="Email" type="email" />
           <Input placeholder="Password" type="password" />
-        </div>
-        <div className={style.btn}>
-          <Button name={'Sign In'} />
-        </div>
+          <div className={style.btn}>
+            <Button name={'Sign In'} />
+          </div>
+        </form>
       </div>
     </>
   );
