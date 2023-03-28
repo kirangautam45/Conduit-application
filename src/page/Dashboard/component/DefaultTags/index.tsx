@@ -6,25 +6,22 @@ import style from './Tags.module.css';
 
 const Tags = () => {
   const dispatch = useAppDispatch();
-  const { tags } = useAppSelector(defaultTagsSelector);
+  const { tags, isLoading, isSuccess } = useAppSelector(defaultTagsSelector);
 
-  useEffect(() => {
-    dispatch(getDefaultTags());
+   useEffect(() => {
+     dispatch(getDefaultTags());
   }, [dispatch]);
   return (
     <div className={style.tagsWrapper}>
       <p className={style.p}>Popular Tags</p>
-      <div>
-        {tags.length ? (
-          tags.map((tag, index) => (
-            <div className={style.tags} key={index}>
-              <> {tag} </>
-            </div>
-          ))
-        ) : (
-          <div> Loading tags... </div>
-        )}
-      </div>
+      {isSuccess &&
+        tags.map((tag, index) => (
+          <div className={style.tags} key={index}>
+            <> {tag} </>
+          </div>
+        ))}
+
+      {!isLoading && <div> Loading tags... </div>}
     </div>
   );
 };

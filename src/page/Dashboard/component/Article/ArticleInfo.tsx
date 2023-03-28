@@ -34,7 +34,7 @@ const ArticleInfo = ({
           <Author src={demo} username={username} createdAt={createdAt} />
         </div>
         <div className={style.rightButton}>
-          <Favorite Count={count} />
+          <Favorite Count={count.toString()} />
         </div>
       </div>
 

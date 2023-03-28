@@ -1,19 +1,23 @@
 /* favorite Button css*/
 
+.container {
+  display: flex;
+  place-items: center;
+  margin: 2px;
+}
+
 .container:hover .btn {
   background-color: #5cb85c;
   color: #ffffff;
 }
-.container {
-  display: flex;
-  margin: 2px;
-}
+
 
 .container:hover .btn svg {
   color: #ffffff;
 }
 
 .btn {
+  display: flex;
   background-color: transparent;
   border: 1px solid #5cb85c;
   color: #5cb85c;
@@ -21,7 +25,6 @@
   font-size: 14px;
   border-radius: 3.5px;
   cursor: pointer;
-  display: flex;
   justify-content: center;
   align-items: center;
 }

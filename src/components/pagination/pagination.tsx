@@ -13,7 +13,7 @@ const Pagination = () => {
   //   .fill(1, totalPages)
   //   .map((_, index) => index + 1);
 
-  // console.log(pages);
+  
 
   const currentPage = Math.ceil((offset + limit) / limit);
 
