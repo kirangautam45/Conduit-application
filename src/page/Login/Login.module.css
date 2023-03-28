@@ -1,16 +1,15 @@
 .loginWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   align-self: center;
   width: auto;
+  place-items: center;
 }
 
 .login {
   margin-bottom: 8px;
   color: #373a3c;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 40px;
   font-weight: 500;
 }
@@ -26,4 +25,7 @@
 .registerLink:hover {
   color: #3d8b3d;
   text-decoration: underline;
+}
+.btn{
+  
 }

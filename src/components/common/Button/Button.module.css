@@ -1,0 +1,17 @@
+.btn {
+  font-size: 1.25rem;
+  padding: 12px 24px;
+  border-radius: 4.8px;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+}

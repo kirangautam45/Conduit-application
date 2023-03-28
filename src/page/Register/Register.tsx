@@ -9,17 +9,19 @@ const Register = () => {
   return (
     <>
       <NavBar />
-      <div className={style.loginWrapper}>
-        <h1 className={style.login}> Sign In</h1>
+      <div className={style.registerWrapper}>
+        <h1 className={style.register}> Sign In</h1>
         <Link className={style.link} to={'/login'}>
-          <p className={style.registerLink}>Have an account? </p>
+          <p className={style.loginLink}>Have an account? </p>
         </Link>
-        <div>
+        <form className={style.center}>
           <Input placeholder="Username" type="text" />
           <Input placeholder="Email" type="email" />
           <Input placeholder="Password" type="password" />
-          <Button />
-        </div>
+          <div className={style.btn}>
+            <Button name={'Sign Up'} />
+          </div>
+        </form>
       </div>
     </>
   );

@@ -1,9 +1,16 @@
-import React from "react";
-import "./Button.css";
-export const Button = () => {
+import React from 'react';
+import style from './Button.module.css';
+
+declare type ButtonProps = {
+  name: string;
+};
+
+export const Button = ({ name }: ButtonProps) => {
   return (
     <>
-      <button className="submit"> Sign Up </button>
+      <button className={style.btn} type="submit">
+        <span> {name}</span>
+      </button>
     </>
   );
 };
