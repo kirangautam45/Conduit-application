@@ -10,28 +10,26 @@ import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { loginUserSelector } from '../../store/login/selector';
 import { loginUser } from '../../store/login/slice';
 
-export const Login = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
   const { email, password } = formData;
 
-  const { isError, isLoading, isSuccess } =
-    useAppSelector(loginUserSelector);
-  
-  
+  const { isError, isLoading, isSuccess } = useAppSelector(loginUserSelector);
+
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   useEffect(() => {
     if (isError) {
-      <>unaccepted error occurs</>;
-
-      if (isSuccess ) {
-        navigate('/');
-      }
+      <div>unaccepted error occurs</div>;
     }
-  }, [isError, isLoading, isSuccess, navigate,]);
+
+    if (isSuccess) {
+      navigate('/');
+    }
+  }, [isError, isLoading, isSuccess, navigate]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prevState => ({
@@ -41,7 +39,7 @@ export const Login = () => {
     }));
   };
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const userData = {
       email,
@@ -58,7 +56,7 @@ export const Login = () => {
         <Link to={'/register'} className={style.link}>
           <p className={style.registerLink}>Need an account? </p>
         </Link>
-        <form className={style.center} onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
           <Input
             placeholder="Email"
             type="email"
@@ -79,3 +77,5 @@ export const Login = () => {
     </>
   );
 };
+
+export default Login;
