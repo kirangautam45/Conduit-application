@@ -18,11 +18,7 @@ const initialState: DefaultTagsState = {
 export const defaultTagsSlice = createSlice({
   name: 'defaultTags',
   initialState,
-  reducers: {
-    getDefaultTag: (state, action) => {
-      state.tags = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: build => {
     build
       .addCase(getDefaultTags.pending, state => {
@@ -39,5 +35,4 @@ export const defaultTagsSlice = createSlice({
       });
   },
 });
-export const { getDefaultTag } = defaultTagsSlice.actions;
 export default defaultTagsSlice.reducer;
