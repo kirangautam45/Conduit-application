@@ -1,8 +1,8 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { postUser, userLogin } from '../../services/user';
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { postUser } from '../../services/user';
 
 import { RegisterUserState, userRegister, userResponse } from './type';
+
 //post user register
 
 export const registerUser = createAsyncThunk(
@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const response = await postUser({ user:{email, password, username }});
+      const response = await postUser({ user: { email, password, username } });
       console.log(response, 'user/register');
       //return response;
     } catch (error) {
@@ -26,28 +26,6 @@ export const registerUser = createAsyncThunk(
   },
 );
 
-export const LoginUser = createAsyncThunk(
-  'user/register',
-  async (
-    values: {
-      email: string;
-      password: string;
-    },
-    { rejectWithValue },
-  ) => {
-    try {
-      const response = await userLogin(values);
-      return response.data;
-    } catch (error) {
-      return rejectWithValue({
-        error: {
-          status: error?.data?.details,
-          data: error?.status,
-        },
-      });
-    }
-  },
-);
 const initialState: RegisterUserState = {
   user: {} as userRegister,
   isLoading: false,
@@ -66,11 +44,10 @@ export const registerUserSlice = createSlice({
       .addCase(registerUser.pending, state => {
         state.isLoading = true;
       })
-      .addCase(registerUser.fulfilled, (state, { payload }) => {
+      .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        console.log(payload, 'payload');
-        state.response = payload;
+        state.response = action.payload;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;

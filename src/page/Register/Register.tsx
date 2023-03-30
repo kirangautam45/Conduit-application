@@ -4,8 +4,8 @@ import Input from '../../components/common/Input/Input';
 import { NavBar } from '../Navbar/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/store';
-import { registerUserSelector } from '../../store/user/selector';
-import { registerUser } from '../../store/user/slice';
+import { registerUserSelector } from '../../store/register/selector';
+import { registerUser } from '../../store/register/slice';
 import style from './Register.module.css';
 
 const Register = () => {
@@ -26,7 +26,7 @@ const Register = () => {
   }, [isSuccess, navigate]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prevState) => ({
+    setFormData(prevState => ({
       ...prevState,
 
       [e.target.name]: e.target.value,
