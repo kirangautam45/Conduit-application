@@ -18,7 +18,6 @@ const Slug = () => {
   const description =
     articleSlug.body && articleSlug.body.replace(/(\r\n|\r|\n)/g, ' \n');
 
-
   useEffect(() => {
     if (slug) dispatch(fetchArticlesBySlug({ slug: slug }));
   }, [dispatch, slug]);
@@ -58,6 +57,7 @@ const Slug = () => {
           </div>
         </>
       )}
+      <footer />
     </>
   );
 };
