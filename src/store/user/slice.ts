@@ -2,25 +2,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { postUser, userLogin } from '../../services/user';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { RegisterUserState, userRegister } from './type';
+import { RegisterUserState, userRegister, userResponse } from './type';
 //post user register
 
-export const RegisterUser = createAsyncThunk(
+export const registerUser = createAsyncThunk(
   'user/register',
   async (
-    values: {
-      email: string;
-      token: string;
-      username: string;
-      bio: null;
-      image: string;
-      password: string;
-    },
+    { email, username, password }: userRegister['user'],
     { rejectWithValue },
   ) => {
     try {
-      const response = await postUser(values);
-      return response.data;
+      const response = await postUser({ user:{email, password, username }});
+      console.log(response, 'user/register');
+      //return response;
     } catch (error) {
       return rejectWithValue({
         error: {
@@ -37,10 +31,6 @@ export const LoginUser = createAsyncThunk(
   async (
     values: {
       email: string;
-      token: string;
-      username: string;
-      bio: string;
-      image: string;
       password: string;
     },
     { rejectWithValue },
@@ -63,24 +53,26 @@ const initialState: RegisterUserState = {
   isLoading: false,
   isSuccess: false,
   isError: false,
+  response: {} as userResponse,
   message: '',
 };
 
-export const registerUser = createSlice({
+export const registerUserSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {},
   extraReducers: build => {
     build
-      .addCase(RegisterUser.pending, state => {
+      .addCase(registerUser.pending, state => {
         state.isLoading = true;
       })
-      .addCase(RegisterUser.fulfilled, (state, { payload }) => {
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = payload;
+        console.log(payload, 'payload');
+        state.response = payload;
       })
-      .addCase(RegisterUser.rejected, (state, action) => {
+      .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         if (typeof action.payload === 'string') {
@@ -89,3 +81,5 @@ export const registerUser = createSlice({
       });
   },
 });
+
+export default registerUserSlice.reducer;
