@@ -17,10 +17,12 @@ export const Login = () => {
   });
   const { email, password } = formData;
 
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
   const { isError, isLoading, isSuccess } =
     useAppSelector(loginUserSelector);
+  
+  
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     if (isError) {
       <>unaccepted error occurs</>;
