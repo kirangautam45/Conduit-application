@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { postUser } from '../../services/user';
 
-import { RegisterUserState, userRegister, userResponse } from './type';
+import { RegisterUserState, userRegister } from './type';
+import { userResponse } from '../login/type';
 
 //post user register
 
@@ -18,8 +19,7 @@ export const registerUser = createAsyncThunk(
     } catch (error) {
       return rejectWithValue({
         error: {
-          status: error?.data?.details,
-          data: error?.status,
+          status: error,
         },
       });
     }

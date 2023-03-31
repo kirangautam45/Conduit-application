@@ -29,6 +29,7 @@ const Dashboard = () => {
     <>
       <NavBar />
       <Banner />
+
       <div className={style.wrapper}>
         <div className={style.leftSide}>
           {articles.length ? (

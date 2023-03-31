@@ -1,4 +1,4 @@
-import { userResponse } from "../login/type";
+import { userResponse } from '../login/type';
 
 export type userRegister = {
   user: {
@@ -16,5 +16,3 @@ export type RegisterUserState = {
   response?: userResponse;
   message: string;
 };
-export { userResponse };
-
