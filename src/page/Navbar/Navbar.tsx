@@ -15,13 +15,13 @@ export const NavBar = () => {
     (responseRegister &&
       responseRegister.user &&
       responseRegister.user.username);
-  const usernameData = usernameInfo ? usernameInfo : '';
 
-  const PillData = [
-    { text: 'Home', link: '/' },
-    { text: 'Sign in', link: '/login' },
-    { text: 'Sign up', link: '/register' },
-  ];
+  const PillData = useMemo(
+    () => [
+      { text: 'Home', link: '/' },
+      { text: 'Sign in', link: '/login' },
+      { text: 'Sign up', link: '/register' },
+    ],[])
 
   const loginPillData = useMemo(
     () => [
@@ -29,21 +29,26 @@ export const NavBar = () => {
       { text: 'New Article', link: '/editor', image: '' },
       { text: 'Settings', link: '/setting', image: '' },
       {
-        text: `${usernameData}`,
+        text: `${usernameInfo}`,
         link: `/username`,
         image: '',
       },
     ],
-    [usernameData],
+    [usernameInfo],
   );
 
   const [navData, setNavData] = useState(PillData);
 
   useEffect(() => {
-    if (responseLogin || responseRegister) {
+    if (
+      (responseLogin && responseLogin.user && responseLogin.user.token) ||
+      (responseRegister && responseRegister.user && responseRegister.user.token)
+    ) {
       setNavData(loginPillData);
+    } else {
+      setNavData(PillData);
     }
-  }, [loginPillData, responseLogin, responseRegister]);
+  }, [PillData, loginPillData, responseLogin, responseRegister]);
 
   return (
     <div className={style.wrapper}>
