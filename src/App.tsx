@@ -21,9 +21,9 @@ const App = () => {
             <Route path="/Register" element={<Register />} />
 
             <Route path="/article/:slug" element={<Slug />} />
-            <Route path="/editors" element={<NewArticle />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/:username" element={<User />} />
+            <Route path="/editor" element={<NewArticle />} />
+            <Route path="/setting" element={<Settings />} />
+            <Route path="/username" element={<User />} />
           </Routes>
         </Router>
       </Provider>

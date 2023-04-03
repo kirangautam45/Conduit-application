@@ -16,7 +16,7 @@ const Input = ({ placeholder, type, onChange, name }: InputProps) => {
       placeholder={placeholder}
       onChange={onChange}
       name={name}
-      
+      autoComplete=""
     />
   );
 };

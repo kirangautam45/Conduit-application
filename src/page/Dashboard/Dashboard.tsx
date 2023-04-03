@@ -30,7 +30,9 @@ const Dashboard = () => {
       <NavBar />
       <Banner />
 
-      {isLoading && !isSuccess && <div>Article Loading... </div>}
+      {isLoading && !isSuccess && (
+        <div className={style.wrapper}>Article Loading... </div>
+      )}
       {isSuccess && (
         <>
           <div className={style.wrapper}>
@@ -48,9 +50,7 @@ const Dashboard = () => {
                   demo={data.author.image}
                 />
               ))}
-              <div className={style.pagination}>
-                {!isLoading && isSuccess && <Pagination />}
-              </div>
+              {!isLoading && isSuccess && <Pagination />}
             </div>
 
             <div className={style.rightSide}>

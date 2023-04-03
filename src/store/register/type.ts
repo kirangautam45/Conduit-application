@@ -1,10 +1,17 @@
-import { userResponse } from '../login/type';
-
 export type userRegister = {
   user: {
     username: string;
     email: string;
     password: string;
+  };
+};
+export type userResponse = {
+  user: {
+    email: string;
+    token: string;
+    username: string;
+    bio: string;
+    image: string;
   };
 };
 
@@ -13,6 +20,6 @@ export type RegisterUserState = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  responseRegister?: userResponse;
+  responseRegister: userResponse | null;
   message: string;
 };

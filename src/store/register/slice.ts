@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { postUser } from '../../services/user';
 
-import { RegisterUserState, userRegister } from './type';
-import { userResponse } from '../login/type';
+import { RegisterUserState, userRegister, userResponse } from './type';
 
 //post user register
 
@@ -14,8 +13,7 @@ export const registerUser = createAsyncThunk(
   ) => {
     try {
       const response = await postUser({ user: { email, password, username } });
-      console.log(response, 'user/register');
-      //return response;
+      return response.data;
     } catch (error) {
       return rejectWithValue({
         error: {
@@ -36,7 +34,7 @@ const initialState: RegisterUserState = {
 };
 
 export const registerUserSlice = createSlice({
-  name: 'user',
+  name: 'userRegister',
   initialState,
   reducers: {},
   extraReducers: build => {

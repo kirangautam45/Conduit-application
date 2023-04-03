@@ -5,12 +5,14 @@ export type userLogin = {
   };
 };
 
-export type userResponse = {
-  email: string;
-  token: string;
-  username: string;
-  bio: string;
-  image: string;
+export type userResponseLogin = {
+  user: {
+    email: string;
+    token: string;
+    username: string;
+    bio: string;
+    image: string;
+  };
 };
 
 export type LoginUserState = {
@@ -18,6 +20,6 @@ export type LoginUserState = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  responseLogin?: userResponse;
+  responseLogin: userResponseLogin | null;
   message: string;
 };
