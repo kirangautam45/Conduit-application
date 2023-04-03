@@ -30,35 +30,36 @@ const Dashboard = () => {
       <NavBar />
       <Banner />
 
-      <div className={style.wrapper}>
-        <div className={style.leftSide}>
-          {articles.length ? (
-            articles.map((data, index) => (
-              <ArticleInfo
-                key={index}
-                username={data.author.username}
-                tag={data.tagList}
-                count={data.favoritesCount}
-                slug={data.slug}
-                title={data.title}
-                description={data.description}
-                createdAt={data.createdAt}
-                demo={data.author.image}
-              />
-            ))
-          ) : (
-            <div> Article Loading...</div>
-          )}
-        </div>
+      {isLoading && !isSuccess && <div>Article Loading... </div>}
+      {isSuccess && (
+        <>
+          <div className={style.wrapper}>
+            <div className={style.leftSide}>
+              {articles.map((data, index) => (
+                <ArticleInfo
+                  key={index}
+                  username={data.author.username}
+                  tag={data.tagList}
+                  count={data.favoritesCount}
+                  slug={data.slug}
+                  title={data.title}
+                  description={data.description}
+                  createdAt={data.createdAt}
+                  demo={data.author.image}
+                />
+              ))}
+              <div className={style.pagination}>
+                {!isLoading && isSuccess && <Pagination />}
+              </div>
+            </div>
 
-        <div className={style.rightSide}>
-          <Tags />
-        </div>
-      </div>
-      <div className={style.pagination}>
-        {isLoading && !isSuccess && <>Article Loading... </>}
-        {!isLoading && isSuccess && <Pagination />}
-      </div>
+            <div className={style.rightSide}>
+              <Tags />
+            </div>
+          </div>
+        </>
+      )}
+
       <Footer />
     </>
   );

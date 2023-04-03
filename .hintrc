@@ -9,7 +9,8 @@
         "label": "off"
       }
     ],
-    "detect-css-reflows/layout": "off"
+    "detect-css-reflows/layout": "off",
+    "no-inline-styles": "off"
   },
   "browserslist": [
     "defaults",
