@@ -18,6 +18,6 @@ export type LoginUserState = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  response?: userResponse;
+  responseLogin?: userResponse;
   message: string;
 };

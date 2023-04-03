@@ -9,11 +9,6 @@ const Pagination = () => {
   const { limit, offset, articlesCount } = useAppSelector(articleSelector);
 
   const totalPages = Math.ceil(articlesCount / limit);
-  // const pages = Array(totalPages)
-  //   .fill(1, totalPages)
-  //   .map((_, index) => index + 1);
-
-  
 
   const currentPage = Math.ceil((offset + limit) / limit);
 

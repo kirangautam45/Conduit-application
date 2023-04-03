@@ -13,6 +13,6 @@ export type RegisterUserState = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  response?: userResponse;
+  responseRegister?: userResponse;
   message: string;
 };

@@ -24,7 +24,7 @@ const initialState: LoginUserState = {
   isLoading: false,
   isSuccess: false,
   isError: false,
-  response: {} as userResponse,
+  responseLogin: {} as userResponse,
   message: '',
 };
 
@@ -32,10 +32,10 @@ export const loginUserSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setLogin: (state, action) => {
-      state.isSuccess = true;
-      state.response = action.payload;
-    },
+    // setLogin: (state, action) => {
+    //   state.isSuccess = true;
+    //   state.response = action.payload;
+    // },
   },
   extraReducers: build => {
     build
@@ -45,7 +45,7 @@ export const loginUserSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.response = payload;
+        state.responseLogin = payload;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -57,6 +57,6 @@ export const loginUserSlice = createSlice({
   },
 });
 
-export const { setLogin } = loginUserSlice.actions;
+// export const { setLogin } = loginUserSlice.actions;
 
 export default loginUserSlice.reducer;
