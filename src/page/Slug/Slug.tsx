@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/store';
 import { fetchArticlesBySlug } from '../../store/slug/slice';
 import { useParams } from 'react-router-dom';
 import { articleSlugSelector } from '../../store/slug/selector';
+import Footer from '../Footer/Footer';
 
 const Slug = () => {
   const dispatch = useAppDispatch();
@@ -57,7 +58,7 @@ const Slug = () => {
           </div>
         </>
       )}
-      <footer />
+      <Footer />
     </>
   );
 };

@@ -1,19 +1,19 @@
 .wrapper {
   display: flex;
   margin-top: 24px;
-  margin-right: 128px;
-  margin-left: 128px;
+  margin-right: 125px;
+  margin-left: 125px;
   padding: 10px;
 }
 .leftSide {
-  width: 75%;
+  width: 73%;
   padding: 10px;
+  margin-bottom: 100px;
 }
 .rightSide {
-  width: 25%;
+  width: 27%;
   padding: 10px;
 }
-.pagination{
-   margin-right: 128px;
-  margin-left: 128px;
-}
+/* .pagination {
+  margin: 16px 0;
+} */

@@ -46,7 +46,9 @@ const ArticleInfo = ({
         </Link>
         <p className={style.description}>{description}</p>
         <div className={style.readMoreTag}>
-          <span className={style.read}>Read more...</span>
+          <Link to={`/article/${slug}`} className={style.link}>
+            <span className={style.read}>Read more...</span>
+          </Link>
           <div className={style.tagsWrapper}>
             {tag.map((data, index) => (
               <Tag key={index} tag={data} />

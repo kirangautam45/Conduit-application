@@ -13,13 +13,11 @@ export const registerUser = createAsyncThunk(
   ) => {
     try {
       const response = await postUser({ user: { email, password, username } });
-      console.log(response, 'user/register');
-      //return response;
+      return response.data;
     } catch (error) {
       return rejectWithValue({
         error: {
-          status: error?.data?.details,
-          data: error?.status,
+          status: error,
         },
       });
     }
@@ -31,19 +29,14 @@ const initialState: RegisterUserState = {
   isLoading: false,
   isSuccess: false,
   isError: false,
-  response: {} as userResponse,
+  responseRegister: {} as userResponse,
   message: '',
 };
 
 export const registerUserSlice = createSlice({
-  name: 'user',
+  name: 'userRegister',
   initialState,
-  reducers: {
-    setRegister: (state, action) => {
-      state.isSuccess = true;
-      state.response = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: build => {
     build
       .addCase(registerUser.pending, state => {
@@ -52,7 +45,7 @@ export const registerUserSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.response = action.payload;
+        state.responseRegister = action.payload;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -63,7 +56,5 @@ export const registerUserSlice = createSlice({
       });
   },
 });
-
-export const { setRegister } = registerUserSlice.actions;
 
 export default registerUserSlice.reducer;

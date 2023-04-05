@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { postUserLogin } from '../../services/user';
 
-import { LoginUserState, userLogin, userResponse } from './type';
+import { LoginUserState, userLogin, userResponseLogin } from './type';
 
 //post user Login
 export const loginUser = createAsyncThunk(
@@ -13,8 +13,7 @@ export const loginUser = createAsyncThunk(
     } catch (error) {
       return rejectWithValue({
         error: {
-          status: error?.data?.details,
-          data: error?.status,
+          status: error,
         },
       });
     }
@@ -25,28 +24,23 @@ const initialState: LoginUserState = {
   isLoading: false,
   isSuccess: false,
   isError: false,
-  response: {} as userResponse,
+  responseLogin: {} as userResponseLogin,
   message: '',
 };
 
 export const loginUserSlice = createSlice({
-  name: 'user',
+  name: 'userLogin',
   initialState,
-  reducers: {
-    setLogin: (state, action) => {
-      state.isSuccess = true;
-      state.response = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: build => {
     build
       .addCase(loginUser.pending, state => {
         state.isLoading = true;
       })
-      .addCase(loginUser.fulfilled, (state, { payload }) => {
+      .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.response = payload;
+        state.responseLogin = action.payload;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -57,7 +51,5 @@ export const loginUserSlice = createSlice({
       });
   },
 });
-
-export const { setLogin } = loginUserSlice.actions;
 
 export default loginUserSlice.reducer;

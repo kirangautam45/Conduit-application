@@ -6,6 +6,9 @@ import Dashboard from './page/Dashboard/Dashboard';
 import Login from './page/Login/Login';
 import Register from './page/Register/Register';
 import Slug from './page/Slug/Slug';
+import NewArticle from './page/NewArticle/Index';
+import User from './page/User/index';
+import Settings from './page/Settings';
 
 const App = () => {
   return (
@@ -15,9 +18,12 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/Register" element={<Register />} />
 
             <Route path="/article/:slug" element={<Slug />} />
+            <Route path="/editor" element={<NewArticle />} />
+            <Route path="/setting" element={<Settings />} />
+            <Route path="/username" element={<User />} />
           </Routes>
         </Router>
       </Provider>
