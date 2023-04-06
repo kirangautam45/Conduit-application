@@ -22,4 +22,5 @@ export type LoginUserState = {
   isError: boolean;
   responseLogin: userResponseLogin | null;
   message: string;
+  webToken: string;
 };

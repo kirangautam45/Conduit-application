@@ -5,7 +5,7 @@ import { LoginUserState, userLogin, userResponseLogin } from './type';
 
 //post user Login
 export const loginUser = createAsyncThunk(
-  'user/register',
+  'user/login',
   async ({ email, password }: userLogin['user'], { rejectWithValue }) => {
     try {
       const response = await postUserLogin({ user: { email, password } });
@@ -26,6 +26,7 @@ const initialState: LoginUserState = {
   isError: false,
   responseLogin: {} as userResponseLogin,
   message: '',
+  webToken: '',
 };
 
 export const loginUserSlice = createSlice({
