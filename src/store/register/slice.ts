@@ -31,6 +31,7 @@ const initialState: RegisterUserState = {
   isError: false,
   responseRegister: {} as userResponse,
   message: '',
+  token: '',
 };
 
 export const registerUserSlice = createSlice({
@@ -46,6 +47,7 @@ export const registerUserSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.responseRegister = action.payload;
+        console.log(action.payload.user.token, 'payload');
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;

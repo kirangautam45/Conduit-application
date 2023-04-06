@@ -20,7 +20,7 @@ export type LoginUserState = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  responseLogin: userResponseLogin | null;
+  responseLogin: userResponseLogin;
   message: string;
   webToken: string;
 };

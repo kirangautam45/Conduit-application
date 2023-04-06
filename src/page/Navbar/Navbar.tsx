@@ -5,6 +5,7 @@ import style from './component/NavBar.module.css';
 import { useAppSelector } from '../../hooks/store';
 import { registerUserSelector } from '../../store/register/selector';
 import { loginUserSelector } from '../../store/login/selector';
+import { setTokens } from '../../utils/cookies';
 
 export const NavBar = () => {
   const { responseRegister } = useAppSelector(registerUserSelector);
@@ -21,7 +22,9 @@ export const NavBar = () => {
       { text: 'Home', link: '/' },
       { text: 'Sign in', link: '/login' },
       { text: 'Sign up', link: '/register' },
-    ],[])
+    ],
+    [],
+  );
 
   const loginPillData = useMemo(
     () => [
@@ -45,6 +48,7 @@ export const NavBar = () => {
       (responseRegister && responseRegister.user && responseRegister.user.token)
     ) {
       setNavData(loginPillData);
+      setTokens(responseLogin?.user.token || responseRegister.user.token);
     } else {
       setNavData(PillData);
     }

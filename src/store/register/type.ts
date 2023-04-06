@@ -8,10 +8,10 @@ export type userRegister = {
 export type userResponse = {
   user: {
     email: string;
-    token: string;
     username: string;
     bio: string | null;
     image: string;
+    token: string;
   };
 };
 
@@ -20,6 +20,7 @@ export type RegisterUserState = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  responseRegister: userResponse | null;
+  responseRegister: userResponse;
   message: string;
+  token: string;
 };
