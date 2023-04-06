@@ -10,6 +10,9 @@ export const fetchArticlesBySlug = createAsyncThunk(
     return response.data;
   },
 );
+
+
+
 const initialState: ArticleSlugState = {
   isError: false,
   isSuccess: false,
