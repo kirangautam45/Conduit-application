@@ -1,16 +1,27 @@
-import axios from "axios";
-const BASEURL = "https://api.realworld.io/api";
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { getAccessToken } from './cookies';
 
-export const apiCaller = axios.create({
+const BASEURL = 'https://api.realworld.io/api';
+
+export const apiCaller: AxiosInstance = axios.create({
   baseURL: BASEURL,
-  headers: { "Content-Type": "application/json" },
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
-apiCaller.interceptors.request.use(
-  (config) => {
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
+export const assignTokenToHeader = (
+  config: AxiosRequestConfig,
+  accessToken: string,
+) => {
+  if (config.headers && accessToken) {
+    config.headers.Authorization = `Token ${accessToken}`;
   }
-);
+
+  return config;
+};
+
+apiCaller.interceptors.request.use(config => {
+  const accessToken = getAccessToken();
+  return assignTokenToHeader(config, accessToken);
+});
